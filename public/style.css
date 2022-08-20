@@ -1,0 +1,22 @@
+body {
+  background-color: #fff;
+  font-family: arial, helvetica, sans-serif;
+  padding: 1em 2em 1em 2em;
+}
+
+table { margin-top: 2em }
+table tbody td { white-space: nowrap }
+
+td.data {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 10em;
+}
+
+.c0 { color: #000 }
+.c1 { color: #00f }
+.c3 { color: #0f0 }
+.c4 { color: #0ff }
+.c5 { color: #f00 }
+.c6 { color: #f0f }
+.c7 { color: #ff0 }
