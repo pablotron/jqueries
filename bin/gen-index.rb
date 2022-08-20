@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 #
-# Scan files in ./js and generate index.html.
+# Scan public/js/jquery-*.js and generate index.html.
 #
 # Usage:
 #   ruby % | minify --type html > public/index.html
@@ -20,8 +20,8 @@ T = {
         <meta charset='utf-8'/>
         <title>jqueries</title>
 
-        <link rel='stylesheet' type='text/css' href='style.css'/>
-        <script type='text/javascript' src='js/script.js' defer></script>
+        <link rel='stylesheet' type='text/css' href='style.min.css'/>
+        <script type='text/javascript' src='js/script.min.js' defer></script>
       </head>
 
       <body>
@@ -37,6 +37,13 @@ T = {
           each row of the table below comes from code executed by the
           corresponding version of <a href='https://jquery.com/'
           title='jQuery' aria-label='jQuery'>jQuery</a>.
+        </p>
+
+        <p>
+          <a href='https://github.com/pablotron/jqueries'
+            title='github repo'
+            aria-label='github repo'
+          >github repo</a>
         </p>
 
         <table>
