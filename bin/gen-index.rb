@@ -14,10 +14,16 @@ GLOB = File.join(__dir__, '..', 'public', 'js', 'jquery-*.js')
 # templates
 T = {
   html: %{
-    <DOCTYPE html>
+    <!DOCTYPE html>
     <html>
       <head>
         <meta charset='utf-8'/>
+
+        <!-- unsafe-eval and unsafe-inline are needed for older jquery -->
+        <meta
+          http-equiv='Content-Security-Policy'
+          content="script-src 'self' 'unsafe-eval' 'unsafe-inline'"
+        />
         <title>jqueries</title>
 
         <link rel='stylesheet' type='text/css' href='style.min.css'/>
@@ -73,7 +79,7 @@ T = {
           title='path to file'
           aria-label='path to file'
           href='%<url>s'
-        >%<url>s</a>
+        >%<name>s</a>
       </td>
 
       <td
@@ -86,7 +92,8 @@ T = {
 }
 
 scripts = Dir[GLOB].sort.map { |s|
-  { path: s, url: 'js/%s' % [File.basename(s)] }
+  name = File.basename(s)
+  { name: name, url: 'js/%s' % [name] }
 }
 
 puts T[:html] % {
