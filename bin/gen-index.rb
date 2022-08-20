@@ -33,7 +33,7 @@ T = {
       <body>
         <h1>jqueries</h1>
 
-        <p id='intro'>
+        <p>
           Every version of <a href='https://jquery.com/' title='jQuery'
           aria-label='jQuery'>jQuery</a> on the same page.
         </p>
@@ -46,11 +46,26 @@ T = {
         </p>
 
         <p>
-          <a href='https://github.com/pablotron/jqueries'
-            title='github repo'
-            aria-label='github repo'
-          >github repo</a>
+          <b>References</b>
         </p>
+
+        <ul>
+          <li>
+            <a
+              href='https://github.com/pablotron/jqueries'
+              title='github repo'
+              aria-label='github repo'
+            >github repo</a>
+          </li>
+
+          <li>
+            <a
+              href='https://youmightnotneedjquery.com/'
+              title='you might not need jquery'
+              aria-label='you might not need jquery'
+            >you might not need jquery</a>
+          </li>
+        </ul>
 
         <table>
           <thead>
