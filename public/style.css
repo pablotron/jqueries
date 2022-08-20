@@ -1,18 +1,23 @@
+/* sane bg color, font, and padding defaults */
 body {
   background-color: #fff;
   font-family: arial, helvetica, sans-serif;
   padding: 1em 2em 1em 2em;
 }
 
+/* add spacing above table */
 table { margin-top: 2em }
 table tbody td { white-space: nowrap }
 
+/* limit data cell overflow, add ellipses            */
+/* (useful for slim version strings, which are YUGE) */
 td.data {
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 10em;
 }
 
+/* color palette */
 .c0 { color: #000 }
 .c1 { color: #00f }
 .c3 { color: #0f0 }
