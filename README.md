@@ -91,3 +91,5 @@ vulnerabilities.
   "MIT license"
 [content-security-policy]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
   "Content security policy"
+[nokogiri]: https://github.com/sparklemotion/nokogiri
+  "Ruby HTML and XML parser."
