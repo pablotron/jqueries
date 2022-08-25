@@ -40,7 +40,7 @@ Requirements:
 
 Steps:
 
-1. [Install minify][].  Pre-built binaries and packages are available.  If you have [Go][] installed you can just run `go install github.com/tdewolff/minify/cmd/minify@latest`.
+1. [Install minify][].  Pre-built binaries and packages are available.  If you already have [Go][] installed, you can run `go install github.com/tdewolff/minify/cmd/minify@latest`.
 2. Run `bundle install` to install [Ruby][] dependencies ([Nokogiri][]).
 3. Run `make` to scan `public/js` and regenerate `public/index.html`.
 4. Load `public/index.html` and marvel at the chaos.
@@ -48,7 +48,9 @@ Steps:
 If you want to re-download the release page HTML and all versions of
 [jQuery][], do the following:
 
-1. Run `make fetch`.  This will download the release HTML and all versions of [jQuery][].
+1. Run `make fetch`.  This will download the release page HTML, parse it
+   to extract URLs to all versions of [jQuery][], and then download all
+   versions of [jQuery][] and write them to `public/js/`.
 2. Run `make`.  This will scan `public/js/` and regenerate `public/index.html`.
 
 ## Notes
