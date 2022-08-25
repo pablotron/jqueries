@@ -36,7 +36,7 @@ Requirements:
 
 * [Ruby][]: Ruby programming language.
 * [Bundler][]: [Ruby][] dependency manager.
-* [`minify`][]: Command-line minification tool.
+* [minify][]: Command-line minification tool.
 
 Steps:
 
