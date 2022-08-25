@@ -4,7 +4,7 @@ Tools to generate a page that uses (almost) every version of [jQuery][]
 at the same time.  Each version of [jQuery][] on the generated page
 handles the color cycling for it's row of the table.
 
-You can see the output at the following URL:
+You can see the result here:
 
 [https://pablotron.github.io/jqueries/][site]
 
