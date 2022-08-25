@@ -6,7 +6,7 @@ handles the color cycling for it's row of the table.
 
 You can see the output at the following URL:
 
-[https://pablotron.github.io/jqueries/][site].
+[https://pablotron.github.io/jqueries/][site]
 
 Relevant Files:
 
@@ -18,8 +18,8 @@ Relevant Files:
 
 ## Why?
 
-Many people dislike seeing [jQuery][] because it isn't typically
-necessary for modern browsers (see [You Might Not Need jQuery][]).
+Some people dislike seeing [jQuery][] because it isn't really needed for
+modern browsers (see [You Might Not Need jQuery][]).
 
 Many older sites embed multiple versions of [jQuery][], often as
 [transitive dependencies][].
@@ -58,8 +58,12 @@ You may have trouble hosting this page if you have a restrictive
 too).  In particular, versions of [jQuery][] older than 1.4.0 will fail
 to load.
 
-The generated `index.html` sets a more permissive
+The generated `index.html` sets a slightly more permissive
 [Content-Security-Policy][] to work around this.
+
+By the way, you really shouldn't self-host the generated page because it
+deliberately serves up old versions of [jQuery][] with known security
+vulnerabilities.
 
 ## License
 
