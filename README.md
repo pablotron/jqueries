@@ -1,28 +1,89 @@
 # jqueries
 
-Almost every version of [jQuery][] on the same page.
+Tools to generate a page that uses (almost) every version of [jQuery][]
+at the same time.  Each version of [jQuery][] on the generated page
+handles the color cycling for it's row of the table.
 
-See `public/js/script.js` for the unminified code which loads all
-versions simultaneously.
+You can see the output at the following URL:
+
+[https://pablotron.github.io/jqueries/][site].
+
+Relevant Files:
+
+* `bin/gen-index.rb`: [Ruby][] script which generates `public/index.html`.
+* `public/js/script.js`: unminified JavaScript which loads all
+  versions of [jQuery][] simultaneously.
+* `public/style.css`: Basic page style and animation color palette.
+* `public/index.html`: Generated page.
+
+## Why?
+
+Many people dislike seeing [jQuery][] because it isn't typically
+necessary for modern browsers (see [You Might Not Need jQuery][]).
+
+Many older sites embed multiple versions of [jQuery][], often as
+[transitive dependencies][].
+
+I thought "wouldn't it be funny if there was a page that loaded *all*
+versions of jQuery?".
 
 ## Build
 
-Load `public/index.html` and marvel at the chaos.
+Follow the instructions in this section if you want to regenerate
+`public/index.html`.
 
-If you want to regenerate the contents, run `make`.  Requires
-[`minify`][minify] and [Ruby][].
+Requirements:
 
-```
-# download all versions of jquery to public/js
-bin/fetch.rb
+* [Ruby][]: Ruby programming language.
+* [Bundler][]: [Ruby][] dependency manager.
+* [`minify`][]: Command-line minification tool.
 
-# regenerate index.html
-bin/gen-index.rb | minify --type html > public/index.html
-```
+Steps:
 
+1. [Install minify][].  Pre-built binaries and packages are available.  If you have [Go][] installed you can just run `go install github.com/tdewolff/minify/cmd/minify@latest`.
+2. Run `bundle install` to install [Ruby][] dependencies ([Nokogiri][]).
+3. Run `make` to scan `public/js` and regenerate `public/index.html`.
+4. Load `public/index.html` and marvel at the chaos.
+
+If you want to re-download the release page HTML and all versions of
+[jQuery][], do the following:
+
+1. Run `make fetch`.  This will download the release HTML and all versions of [jQuery][].
+2. Run `make`.  This will scan `public/js/` and regenerate `public/index.html`.
+
+## Notes
+
+You may have trouble hosting this page if you have a restrictive
+[Content-Security-Policy][] on your domain (like I do, and you should
+too).  In particular, versions of [jQuery][] older than 1.4.0 will fail
+to load.
+
+The generated `index.html` sets a more permissive
+[Content-Security-Policy][] to work around this.
+
+## License
+
+[MIT][].  See `license.txt`.
+
+[site]: https://pablotron.github.io/jqueries/
+  "Release version of this site."
 [jquery]: https://jquery.com/
   "jQuery"
+[go]: https://go.dev/
+  "Go programming language."
 [minify]: https://github.com/tdewolff/minify
   "Command-line minifier."
 [ruby]: https://ruby-lang.org/
   "Ruby programming language."
+[bundler]: https://bundler.io/
+  "Ruby dependency manager."
+[install minify]: https://github.com/tdewolff/minify/tree/master/cmd/minify
+  "minify installation instructions."
+[you might not need jquery]: https://youmightnotneedjquery.com/
+  "You might not need jQuery."
+[transitive dependencies]: https://en.wikipedia.org/wiki/Transitive_dependency
+  "Transitive dependency"
+[mit]: https://opensource.org/licenses/MIT
+  "MIT license"
+[content-security-policy]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+  "Content security policy"
