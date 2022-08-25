@@ -11,6 +11,21 @@
 # script globs
 GLOB = File.join(__dir__, '..', 'public', 'js', 'jquery-*.js')
 
+# reference links
+REFS = [{
+  name: 'github repo',
+  href: 'https://github.com/pablotron/jqueries',
+  help: 'github repo',
+}, {
+  name: 'you might not need jquery',
+  href: 'https://youmightnotneedjquery.com/',
+  help: 'you might not need jquery',
+}, {
+  name: 'my site',
+  href: 'https://pablotron.org/',
+  help: 'my site',
+}]
+
 # templates
 T = {
   html: %{
@@ -49,23 +64,7 @@ T = {
           <b>References</b>
         </p>
 
-        <ul>
-          <li>
-            <a
-              href='https://github.com/pablotron/jqueries'
-              title='github repo'
-              aria-label='github repo'
-            >github repo</a>
-          </li>
-
-          <li>
-            <a
-              href='https://youmightnotneedjquery.com/'
-              title='you might not need jquery'
-              aria-label='you might not need jquery'
-            >you might not need jquery</a>
-          </li>
-        </ul>
+        <ul>%<refs>s</ul>
 
         <table>
           <thead>
@@ -83,9 +82,19 @@ T = {
     </html>
   }.strip.gsub(/\s+/m, ' ').gsub(/>\s+</m, '><'),
 
+  ref: %{
+    <li>
+      <a
+        href='%<href>s'
+        title='%<help>s'
+        aria-label='%<help>s'
+      >%<name>s</a>
+    </li>
+  },
+
   tr: %{
     <tr data-path='%<url>s'>
-      <td 
+      <td
         title='path to file'
         aria-label='path to file'
         class='path'
@@ -106,11 +115,14 @@ T = {
   },
 }
 
+# load scripts
 scripts = Dir[GLOB].sort.map { |s|
   name = File.basename(s)
   { name: name, url: 'js/%s' % [name] }
 }
 
+# generate html, write to standard output
 puts T[:html] % {
   rows: scripts.map { |s| T[:tr] % s }.join,
+  refs: REFS.map { |r| T[:ref] % r }.join,
 }
